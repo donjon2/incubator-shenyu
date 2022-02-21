@@ -266,13 +266,13 @@
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo</artifactId>
-            <version>2.7.5</version>
+            <version>${apache.dubbo.version}</version>
         </dependency>
         <!-- Dubbo Nacos registry dependency -->
       <!--  <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-registry-nacos</artifactId>
-            <version>2.7.5</version>
+            <version>${apache.dubbo.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.nacos</groupId>
@@ -414,6 +414,18 @@
             <version>${project.version}</version>
         </dependency>
         <!--shenyu instance end-->
+
+        <!-- apache shenyu data sync start use nacos-->
+        <dependency>
+            <groupId>org.apache.shenyu</groupId>
+            <artifactId>shenyu-spring-boot-starter-sync-data-nacos</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.20.0-GA</version>
+        </dependency>
     </dependencies>
     
     <profiles>
