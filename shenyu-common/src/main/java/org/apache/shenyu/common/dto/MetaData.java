@@ -535,16 +535,34 @@ public class MetaData {
             return this;
         }
 
+        /**
+         * build requestSchema.
+         *
+         * @param requestSchema requestSchema
+         * @return this
+         */
         public Builder requestSchema(final String requestSchema) {
             this.requestSchema = requestSchema;
             return this;
         }
 
+        /**
+         * build requestTemplate.
+         *
+         * @param requestTemplate requestTemplate
+         * @return this
+         */
         public Builder requestTemplate(final String requestTemplate) {
             this.requestTemplate = requestTemplate;
             return this;
         }
 
+        /**
+         * build dataScope.
+         *
+         * @param dataScope dataScope
+         * @return this
+         */
         public Builder dataScope(final Integer dataScope) {
             this.dataScope = dataScope;
             return this;

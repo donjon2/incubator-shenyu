@@ -246,28 +246,57 @@ public final class MetaDataDO extends BaseDO implements Serializable {
         this.enabled = enabled;
     }
 
-
+    /**
+     * Gets the value of requestSchema.
+     *
+     * @return the value of requestSchema
+     */
     public String getRequestSchema() {
         return requestSchema;
     }
 
-    public void setRequestSchema(String requestSchema) {
+    /**
+     * Sets the requestSchema.
+     *
+     * @param requestSchema requestSchema
+     */
+    public void setRequestSchema(final String requestSchema) {
         this.requestSchema = requestSchema;
     }
 
+    /**
+     * Gets the value of requestTemplate.
+     *
+     * @return the value of requestTemplate
+     */
     public String getRequestTemplate() {
         return requestTemplate;
     }
 
-    public void setRequestTemplate(String requestTemplate) {
+    /**
+     * Sets the requestTemplate.
+     *
+     * @param requestTemplate requestTemplate
+     */
+    public void setRequestTemplate(final String requestTemplate) {
         this.requestTemplate = requestTemplate;
     }
 
+    /**
+     * Gets the value of dataScope.
+     *
+     * @return the value of dataScope
+     */
     public Integer getDataScope() {
         return dataScope;
     }
 
-    public void setDataScope(Integer dataScope) {
+    /**
+     * Sets the dataScope.
+     *
+     * @param dataScope dataScope
+     */
+    public void setDataScope(final Integer dataScope) {
         this.dataScope = dataScope;
     }
 
@@ -478,16 +507,34 @@ public final class MetaDataDO extends BaseDO implements Serializable {
             return this;
         }
 
+        /**
+         * requestSchema.
+         *
+         * @param requestSchema the requestSchema.
+         * @return MetaDataDOBuilder.
+         */
         public MetaDataDOBuilder requestSchema(final String requestSchema) {
             this.requestSchema = requestSchema;
             return this;
         }
 
+        /**
+         * requestTemplate.
+         *
+         * @param requestTemplate the requestTemplate.
+         * @return MetaDataDOBuilder.
+         */
         public MetaDataDOBuilder requestTemplate(final String requestTemplate) {
             this.requestTemplate = requestTemplate;
             return this;
         }
 
+        /**
+         * dataScope.
+         *
+         * @param dataScope the dataScope.
+         * @return MetaDataDOBuilder.
+         */
         public MetaDataDOBuilder dataScope(final Integer dataScope) {
             this.dataScope = dataScope;
             return this;

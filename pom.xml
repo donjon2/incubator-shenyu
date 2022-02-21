@@ -145,6 +145,9 @@
         <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
         <netflix-ribbon.version>2.2.9.RELEASE</netflix-ribbon.version>
         <dockerfile-maven-plugin.version>1.4.6</dockerfile-maven-plugin.version>
+
+        <origin.releases>http://nexus.hzlzedu.com:8686/nexus/content/repositories/origin-release/</origin.releases>
+        <origin.snapshots>http://nexus.hzlzedu.com:8686/nexus/content/repositories/origin-snapshots/</origin.snapshots>
     </properties>
 
     <dependencyManagement>
@@ -630,4 +633,18 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>releases Repository</name>
+            <url>${origin.releases}</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>${origin.snapshots}</url>
+            <uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

@@ -131,7 +131,9 @@ public class MetaDataRegisterDTO implements DataTypeParent {
         parameterTypes = builder.parameterTypes;
         rpcExt = builder.rpcExt;
         enabled = builder.enabled;
-        requestSchema = builder.
+        requestSchema = builder.requestSchema;
+        requestTemplate = builder.requestTemplate;
+        dataScope = builder.dataScope;
         host = builder.host;
         port = builder.port;
         pluginNames = builder.pluginNames;
@@ -350,27 +352,57 @@ public class MetaDataRegisterDTO implements DataTypeParent {
         this.enabled = enabled;
     }
 
+    /**
+     * getRequestSchema.
+     *
+     * @return String of requestSchema
+     */
     public String getRequestSchema() {
         return requestSchema;
     }
 
-    public void setRequestSchema(String requestSchema) {
+    /**
+     * setRequestSchema.
+     *
+     * @param requestSchema requestSchema
+     */
+    public void setRequestSchema(final String requestSchema) {
         this.requestSchema = requestSchema;
     }
 
+    /**
+     * getRequestTemplate.
+     *
+     * @return String of requestTemplate
+     */
     public String getRequestTemplate() {
         return requestTemplate;
     }
 
-    public void setRequestTemplate(String requestTemplate) {
+    /**
+     * setRequestTemplate.
+     *
+     * @param requestTemplate requestTemplate
+     */
+    public void setRequestTemplate(final String requestTemplate) {
         this.requestTemplate = requestTemplate;
     }
 
+    /**
+     * getDataScope.
+     *
+     * @return Integer of dataScope
+     */
     public Integer getDataScope() {
         return dataScope;
     }
 
-    public void setDataScope(Integer dataScope) {
+    /**
+     * setDataScope.
+     *
+     * @param dataScope dataScope
+     */
+    public void setDataScope(final Integer dataScope) {
         this.dataScope = dataScope;
     }
 
@@ -647,16 +679,34 @@ public class MetaDataRegisterDTO implements DataTypeParent {
             return this;
         }
 
+        /**
+         * requestSchema.
+         *
+         * @param requestSchema requestSchema
+         * @return Builder builder
+         */
         public Builder requestSchema(final String requestSchema) {
             this.requestSchema = requestSchema;
             return this;
         }
 
+        /**
+         * requestTemplate.
+         *
+         * @param requestTemplate requestTemplate
+         * @return Builder builder
+         */
         public Builder requestTemplate(final String requestTemplate) {
             this.requestTemplate = requestTemplate;
             return this;
         }
 
+        /**
+         * dataScope.
+         *
+         * @param dataScope dataScope
+         * @return Builder builder
+         */
         public Builder dataScope(final Integer dataScope) {
             this.dataScope = dataScope;
             return this;
