@@ -135,6 +135,9 @@ CREATE TABLE  IF NOT EXISTS `meta_data` (
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'create time',
   `date_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'update time',
   `enabled` tinyint(4) NOT NULL DEFAULT 0 COMMENT 'enabled state',
+  `request_schema` text COLLATE utf8mb4_unicode_ci COMMENT 'request schema',
+  `request_template` text COLLATE utf8mb4_unicode_ci COMMENT 'request template',
+  `data_scope` tinyint(4) DEFAULT NULL COMMENT 'data scope',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;;
 

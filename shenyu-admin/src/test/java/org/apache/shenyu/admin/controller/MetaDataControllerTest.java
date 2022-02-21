@@ -69,7 +69,7 @@ public final class MetaDataControllerTest {
 
     private final MetaDataVO metaDataVO = new MetaDataVO("appName", "appPath", "desc", "rpcType", "serviceName", "methodName", "types", "rpcExt",
             "1", DateUtils.localDateTimeToString(LocalDateTime.now()), DateUtils.localDateTimeToString(LocalDateTime.now()),
-            true);
+            true, "requestSchema", "requestTemplate", 0);
 
     @BeforeEach
     public void setUp() {

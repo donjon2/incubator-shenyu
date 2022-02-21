@@ -53,6 +53,12 @@ public class MetaDataDTO implements Serializable {
      */
     private Boolean enabled;
 
+    private String requestSchema;
+
+    private String requestTemplate;
+
+    private Integer dataScope;
+
     /**
      * Gets the value of id.
      *
@@ -269,6 +275,30 @@ public class MetaDataDTO implements Serializable {
         this.enabled = enabled;
     }
 
+    public String getRequestSchema() {
+        return requestSchema;
+    }
+
+    public void setRequestSchema(String requestSchema) {
+        this.requestSchema = requestSchema;
+    }
+
+    public String getRequestTemplate() {
+        return requestTemplate;
+    }
+
+    public void setRequestTemplate(String requestTemplate) {
+        this.requestTemplate = requestTemplate;
+    }
+
+    public Integer getDataScope() {
+        return dataScope;
+    }
+
+    public void setDataScope(Integer dataScope) {
+        this.dataScope = dataScope;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -289,11 +319,15 @@ public class MetaDataDTO implements Serializable {
                 && Objects.equals(methodName, that.methodName)
                 && Objects.equals(parameterTypes, that.parameterTypes)
                 && Objects.equals(rpcExt, that.rpcExt)
-                && Objects.equals(enabled, that.enabled);
+                && Objects.equals(enabled, that.enabled)
+                && Objects.equals(requestSchema, that.requestSchema)
+                && Objects.equals(requestTemplate, that.requestTemplate)
+                && Objects.equals(dataScope, that.dataScope);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, appName, contextPath, path, ruleName, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled);
+        return Objects.hash(id, appName, contextPath, path, ruleName, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, requestTemplate, dataScope);
     }
 }

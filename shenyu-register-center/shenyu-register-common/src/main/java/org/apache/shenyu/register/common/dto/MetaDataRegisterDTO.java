@@ -51,6 +51,12 @@ public class MetaDataRegisterDTO implements DataTypeParent {
 
     private boolean enabled;
 
+    private String requestSchema;
+
+    private String requestTemplate;
+
+    private Integer dataScope;
+
     private String host;
 
     private Integer port;
@@ -83,9 +89,10 @@ public class MetaDataRegisterDTO implements DataTypeParent {
                                final String rpcType, final String serviceName,
                                final String methodName, final String ruleName,
                                final String parameterTypes, final String rpcExt,
-                               final boolean enabled, final String host,
-                               final Integer port, final List<String> pluginNames,
-                               final boolean registerMetaData) {
+                               final boolean enabled, final String requestSchema,
+                               final String requestTemplate, final Integer dataScope,
+                               final String host, final Integer port,
+                               final List<String> pluginNames, final boolean registerMetaData) {
         this.appName = appName;
         this.contextPath = contextPath;
         this.path = path;
@@ -97,6 +104,9 @@ public class MetaDataRegisterDTO implements DataTypeParent {
         this.parameterTypes = parameterTypes;
         this.rpcExt = rpcExt;
         this.enabled = enabled;
+        this.requestSchema = requestSchema;
+        this.requestTemplate = requestTemplate;
+        this.dataScope = dataScope;
         this.host = host;
         this.port = port;
         this.pluginNames = pluginNames;
@@ -121,6 +131,7 @@ public class MetaDataRegisterDTO implements DataTypeParent {
         parameterTypes = builder.parameterTypes;
         rpcExt = builder.rpcExt;
         enabled = builder.enabled;
+        requestSchema = builder.
         host = builder.host;
         port = builder.port;
         pluginNames = builder.pluginNames;
@@ -338,7 +349,31 @@ public class MetaDataRegisterDTO implements DataTypeParent {
     public void setEnabled(final boolean enabled) {
         this.enabled = enabled;
     }
-    
+
+    public String getRequestSchema() {
+        return requestSchema;
+    }
+
+    public void setRequestSchema(String requestSchema) {
+        this.requestSchema = requestSchema;
+    }
+
+    public String getRequestTemplate() {
+        return requestTemplate;
+    }
+
+    public void setRequestTemplate(String requestTemplate) {
+        this.requestTemplate = requestTemplate;
+    }
+
+    public Integer getDataScope() {
+        return dataScope;
+    }
+
+    public void setDataScope(Integer dataScope) {
+        this.dataScope = dataScope;
+    }
+
     /**
      * getHost.
      *
@@ -474,6 +509,12 @@ public class MetaDataRegisterDTO implements DataTypeParent {
 
         private boolean enabled;
 
+        private String requestSchema;
+
+        private String requestTemplate;
+
+        private Integer dataScope;
+
         private String host;
 
         private Integer port;
@@ -603,6 +644,21 @@ public class MetaDataRegisterDTO implements DataTypeParent {
          */
         public Builder enabled(final boolean enabled) {
             this.enabled = enabled;
+            return this;
+        }
+
+        public Builder requestSchema(final String requestSchema) {
+            this.requestSchema = requestSchema;
+            return this;
+        }
+
+        public Builder requestTemplate(final String requestTemplate) {
+            this.requestTemplate = requestTemplate;
+            return this;
+        }
+
+        public Builder dataScope(final Integer dataScope) {
+            this.dataScope = dataScope;
             return this;
         }
     

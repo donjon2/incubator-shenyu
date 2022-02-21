@@ -49,6 +49,12 @@ public final class MetaDataDO extends BaseDO implements Serializable {
      */
     private Boolean enabled;
 
+    private String requestSchema;
+
+    private String requestTemplate;
+
+    private Integer dataScope;
+
     public MetaDataDO() {
     }
 
@@ -60,7 +66,10 @@ public final class MetaDataDO extends BaseDO implements Serializable {
                       final String methodName,
                       final String parameterTypes,
                       final String rpcExt,
-                      final Boolean enabled) {
+                      final Boolean enabled,
+                      final String requestSchema,
+                      final String requestTemplate,
+                      final Integer dataScope) {
         this.appName = appName;
         this.path = path;
         this.pathDesc = pathDesc;
@@ -70,6 +79,9 @@ public final class MetaDataDO extends BaseDO implements Serializable {
         this.parameterTypes = parameterTypes;
         this.rpcExt = rpcExt;
         this.enabled = enabled;
+        this.requestSchema = requestSchema;
+        this.requestTemplate = requestTemplate;
+        this.dataScope = dataScope;
     }
 
     /**
@@ -234,6 +246,31 @@ public final class MetaDataDO extends BaseDO implements Serializable {
         this.enabled = enabled;
     }
 
+
+    public String getRequestSchema() {
+        return requestSchema;
+    }
+
+    public void setRequestSchema(String requestSchema) {
+        this.requestSchema = requestSchema;
+    }
+
+    public String getRequestTemplate() {
+        return requestTemplate;
+    }
+
+    public void setRequestTemplate(String requestTemplate) {
+        this.requestTemplate = requestTemplate;
+    }
+
+    public Integer getDataScope() {
+        return dataScope;
+    }
+
+    public void setDataScope(Integer dataScope) {
+        this.dataScope = dataScope;
+    }
+
     /**
      * builder method.
      *
@@ -263,12 +300,15 @@ public final class MetaDataDO extends BaseDO implements Serializable {
                 && Objects.equals(methodName, that.methodName)
                 && Objects.equals(parameterTypes, that.parameterTypes)
                 && Objects.equals(rpcExt, that.rpcExt)
-                && Objects.equals(enabled, that.enabled);
+                && Objects.equals(enabled, that.enabled)
+                && Objects.equals(requestSchema, that.requestSchema)
+                && Objects.equals(requestTemplate, that.requestTemplate)
+                && Objects.equals(dataScope, that.dataScope);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled);
+        return Objects.hash(super.hashCode(), appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, requestTemplate, dataScope);
     }
 
     public static final class MetaDataDOBuilder {
@@ -296,6 +336,12 @@ public final class MetaDataDO extends BaseDO implements Serializable {
         private String rpcExt;
 
         private Boolean enabled;
+
+        private String requestSchema;
+
+        private String requestTemplate;
+
+        private Integer dataScope;
 
         private MetaDataDOBuilder() {
         }
@@ -432,6 +478,21 @@ public final class MetaDataDO extends BaseDO implements Serializable {
             return this;
         }
 
+        public MetaDataDOBuilder requestSchema(final String requestSchema) {
+            this.requestSchema = requestSchema;
+            return this;
+        }
+
+        public MetaDataDOBuilder requestTemplate(final String requestTemplate) {
+            this.requestTemplate = requestTemplate;
+            return this;
+        }
+
+        public MetaDataDOBuilder dataScope(final Integer dataScope) {
+            this.dataScope = dataScope;
+            return this;
+        }
+
         /**
          * build method.
          *
@@ -451,6 +512,9 @@ public final class MetaDataDO extends BaseDO implements Serializable {
             metaDataDO.setParameterTypes(parameterTypes);
             metaDataDO.setRpcExt(rpcExt);
             metaDataDO.setEnabled(enabled);
+            metaDataDO.setRequestSchema(requestSchema);
+            metaDataDO.setRequestTemplate(requestTemplate);
+            metaDataDO.setDataScope(dataScope);
             return metaDataDO;
         }
     }

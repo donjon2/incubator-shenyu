@@ -404,6 +404,12 @@ public class MetaData {
          */
         private Boolean enabled;
 
+        private String requestSchema;
+
+        private String requestTemplate;
+
+        private Integer dataScope;
+
         /**
          * no args constructor.
          */
@@ -526,6 +532,21 @@ public class MetaData {
          */
         public Builder enabled(final Boolean enabled) {
             this.enabled = enabled;
+            return this;
+        }
+
+        public Builder requestSchema(final String requestSchema) {
+            this.requestSchema = requestSchema;
+            return this;
+        }
+
+        public Builder requestTemplate(final String requestTemplate) {
+            this.requestTemplate = requestTemplate;
+            return this;
+        }
+
+        public Builder dataScope(final Integer dataScope) {
+            this.dataScope = dataScope;
             return this;
         }
     }

@@ -57,6 +57,12 @@ public class MetaDataVO implements Serializable {
 
     private Boolean enabled;
 
+    private String requestSchema;
+
+    private String requestTemplate;
+
+    private Integer dataScope;
+
     public MetaDataVO() {
     }
 
@@ -71,7 +77,10 @@ public class MetaDataVO implements Serializable {
                       final String id,
                       final String dateCreated,
                       final String dateUpdated,
-                      final Boolean enabled) {
+                      final Boolean enabled,
+                      final String requestSchema,
+                      final String requestTemplate,
+                      final Integer dataScope) {
         this.appName = appName;
         this.path = path;
         this.pathDesc = pathDesc;
@@ -84,6 +93,9 @@ public class MetaDataVO implements Serializable {
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
         this.enabled = enabled;
+        this.requestSchema = requestSchema;
+        this.requestTemplate = requestTemplate;
+        this.dataScope = dataScope;
     }
 
     /**
@@ -302,6 +314,30 @@ public class MetaDataVO implements Serializable {
         this.enabled = enabled;
     }
 
+    public String getRequestSchema() {
+        return requestSchema;
+    }
+
+    public void setRequestSchema(String requestSchema) {
+        this.requestSchema = requestSchema;
+    }
+
+    public String getRequestTemplate() {
+        return requestTemplate;
+    }
+
+    public void setRequestTemplate(String requestTemplate) {
+        this.requestTemplate = requestTemplate;
+    }
+
+    public Integer getDataScope() {
+        return dataScope;
+    }
+
+    public void setDataScope(Integer dataScope) {
+        this.dataScope = dataScope;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -322,12 +358,15 @@ public class MetaDataVO implements Serializable {
                 && Objects.equals(id, that.id)
                 && Objects.equals(dateCreated, that.dateCreated)
                 && Objects.equals(dateUpdated, that.dateUpdated)
-                && Objects.equals(enabled, that.enabled);
+                && Objects.equals(enabled, that.enabled)
+                && Objects.equals(requestSchema, that.requestSchema)
+                && Objects.equals(requestTemplate, that.requestTemplate)
+                && Objects.equals(dataScope, that.dataScope);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, id, dateCreated, dateUpdated, enabled);
+        return Objects.hash(appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, id, dateCreated, dateUpdated, enabled, requestSchema, requestTemplate, dataScope);
     }
 
     @Override
@@ -345,6 +384,9 @@ public class MetaDataVO implements Serializable {
                 + ", dateCreated='" + dateCreated + '\''
                 + ", dateUpdated='" + dateUpdated + '\''
                 + ", enabled=" + enabled
+                + ", requestSchema=" + requestSchema
+                + ", requestTemplate=" + requestTemplate
+                + ", dataScope=" + dataScope
                 + '}';
     }
 }

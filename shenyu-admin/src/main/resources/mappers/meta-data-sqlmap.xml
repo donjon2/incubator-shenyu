@@ -31,6 +31,9 @@
         <result column="parameter_types" jdbcType="VARCHAR" property="parameterTypes"/>
         <result column="rpc_ext" jdbcType="VARCHAR" property="rpcExt"/>
         <result column="enabled" jdbcType="TINYINT" property="enabled"/>
+        <result column="request_schema" jdbcType="VARCHAR" property="requestSchema"/>
+        <result column="request_template" jdbcType="VARCHAR" property="requestTemplate"/>
+        <result column="data_scope" jdbcType="TINYINT" property="dataScope"/>
     </resultMap>
 
     <sql id="Base_Column_List">
@@ -115,6 +118,9 @@
          #{parameterTypes,jdbcType=VARCHAR},
          #{rpcExt,jdbcType=VARCHAR},
          #{enabled,jdbcType=TINYINT})
+        #{requestSchema,jdbcType=VARCHAR})
+        #{requestTemplate,jdbcType=VARCHAR})
+        #{dataScope,jdbcType=TINYINT})
     </insert>
 
 
@@ -128,6 +134,9 @@
         method_name = #{methodName,jdbcType=VARCHAR},
         parameter_types = #{parameterTypes,jdbcType=VARCHAR},
         rpc_ext= #{rpcExt,jdbcType=VARCHAR}
+        requestSchema= #{requestSchema,jdbcType=VARCHAR}
+        requestTemplate= #{requestTemplate,jdbcType=VARCHAR}
+        dataScope= #{dataScope,jdbcType=TINYINT}
         where id = #{id,jdbcType=VARCHAR}
     </update>
 

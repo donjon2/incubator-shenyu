@@ -57,6 +57,9 @@ public enum MetaDataTransfer {
                         .parameterTypes(dto.getParameterTypes())
                         .rpcExt(dto.getRpcExt())
                         .enabled(dto.getEnabled())
+                        .requestSchema(dto.getRequestSchema())
+                        .requestTemplate(dto.getRequestTemplate())
+                        .dataScope(dto.getDataScope())
                         .build())
                 .orElse(null);
     }
@@ -79,6 +82,9 @@ public enum MetaDataTransfer {
                         .parameterTypes(dto.getParameterTypes())
                         .rpcExt(dto.getRpcExt())
                         .enabled(dto.isEnabled())
+                        .requestSchema(dto.getRequestSchema())
+                        .requestTemplate(dto.getRequestTemplate())
+                        .dataScope(dto.getDataScope())
                         .build())
                 .orElse(null);
     }
@@ -102,6 +108,9 @@ public enum MetaDataTransfer {
                         .parameterTypes(v.getParameterTypes())
                         .rpcExt(v.getRpcExt())
                         .enabled(v.getEnabled())
+                        .requestSchema(v.getRequestSchema())
+                        .requestTemplate(v.getRequestTemplate())
+                        .dataScope(v.getDataScope())
                         .build())
                 .orElse(null);
     }
@@ -124,6 +133,9 @@ public enum MetaDataTransfer {
                         .parameterTypes(v.getParameterTypes())
                         .rpcExt(v.getRpcExt())
                         .enabled(v.getEnabled())
+                        .requestTemplate(v.getRequestTemplate())
+                        .requestSchema(v.getRequestSchema())
+                        .dataScope(v.getDataScope())
                         .build())
                 .orElse(null);
     }
@@ -160,6 +172,9 @@ public enum MetaDataTransfer {
                     metaDataVO.setRpcExt(metaDataDO.getRpcExt());
                     metaDataVO.setId(metaDataDO.getId());
                     metaDataVO.setEnabled(metaDataDO.getEnabled());
+                    metaDataVO.setRequestSchema(metaDataDO.getRequestSchema());
+                    metaDataVO.setRequestTemplate(metaDataDO.getRequestTemplate());
+                    metaDataVO.setDataScope(metaDataDO.getDataScope());
                     metaDataVO.setDateCreated(Optional.ofNullable(metaDataDO.getDateCreated())
                             .map(u -> DateUtils.localDateTimeToString(u.toLocalDateTime())).orElse(null));
                     metaDataVO.setDateUpdated(Optional.ofNullable(metaDataDO.getDateUpdated())
