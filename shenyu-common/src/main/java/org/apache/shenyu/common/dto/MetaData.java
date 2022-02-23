@@ -43,6 +43,12 @@ public class MetaData {
 
     private Boolean enabled;
 
+    private String requestSchema;
+
+    private String requestTemplate;
+
+    private Integer dataScope;
+
     /**
      * no args constructor.
      */
@@ -62,9 +68,13 @@ public class MetaData {
      * @param parameterTypes parameterTypes
      * @param rpcExt         rpcExt
      * @param enabled        enabled
+     * @param requestSchema  requestSchema
+     * @param requestTemplate requestTemplate
+     * @param dataScope      dataScope
      */
     public MetaData(final String id, final String appName, final String contextPath, final String path, final String rpcType, final String serviceName,
-                    final String methodName, final String parameterTypes, final String rpcExt, final Boolean enabled) {
+                    final String methodName, final String parameterTypes, final String rpcExt, final Boolean enabled,
+                    final String requestSchema, final String requestTemplate, final Integer dataScope) {
         this.id = id;
         this.appName = appName;
         this.contextPath = contextPath;
@@ -75,6 +85,9 @@ public class MetaData {
         this.parameterTypes = parameterTypes;
         this.rpcExt = rpcExt;
         this.enabled = enabled;
+        this.requestSchema = requestSchema;
+        this.requestTemplate = requestTemplate;
+        this.dataScope = dataScope;
     }
 
     /**
@@ -93,6 +106,9 @@ public class MetaData {
         this.parameterTypes = builder.parameterTypes;
         this.rpcExt = builder.rpcExt;
         this.enabled = builder.enabled;
+        this.requestSchema = builder.requestSchema;
+        this.requestTemplate = builder.requestTemplate;
+        this.dataScope = builder.dataScope;
     }
 
     /**
@@ -282,6 +298,60 @@ public class MetaData {
      */
     public void setEnabled(final Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    /**
+     * get requestSchema.
+     *
+     * @return requestSchema
+     */
+    public String getRequestSchema() {
+        return requestSchema;
+    }
+
+    /**
+     * set requestSchema.
+     *
+     * @param requestSchema requestSchema
+     */
+    public void setRequestSchema(final String requestSchema) {
+        this.requestSchema = requestSchema;
+    }
+
+    /**
+     * get requestTemplate.
+     *
+     * @return requestTemplate
+     */
+    public String getRequestTemplate() {
+        return requestTemplate;
+    }
+
+    /**
+     * set requestTemplate.
+     *
+     * @param requestTemplate requestTemplate
+     */
+    public void setRequestTemplate(final String requestTemplate) {
+        this.requestTemplate = requestTemplate;
+    }
+
+    /**
+     * get dataScope.
+     *
+     * @return dataScope
+     */
+    public Integer getDataScope() {
+        return dataScope;
+    }
+
+    /**
+     * set dataScope.
+     *
+     * @param dataScope dataScope
+     */
+    public void setDataScope(final Integer dataScope) {
+        this.dataScope = dataScope;
     }
 
     @Override

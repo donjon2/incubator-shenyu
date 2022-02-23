@@ -61,7 +61,7 @@ public final class ApplicationConfigCacheTest {
 
         final MetaData metaData = new MetaData("id", "127.0.0.1:8080", "contextPath",
                 "path5", RpcTypeEnum.TARS.getName(), "serviceName5", "method1",
-                "parameterTypes", rpcExt, false);
+                "parameterTypes", rpcExt, false, null, null, 0);
 
         assertThrows(NullPointerException.class, () -> {
             applicationConfigCacheUnderTest.initPrx(metaData);
@@ -93,16 +93,16 @@ public final class ApplicationConfigCacheTest {
 
         final MetaData metaData1 = new MetaData("id", "127.0.0.1:8080", "contextPath",
                 "path1", RpcTypeEnum.TARS.getName(), "serviceName1", "method1",
-                "parameterTypes", rpcExt1, false);
+                "parameterTypes", rpcExt1, false, null, null, 0);
         final MetaData metaData2 = new MetaData("id", "127.0.0.1:8080", "contextPath",
                 "path2", RpcTypeEnum.TARS.getName(), "serviceName2", "method2",
-                "parameterTypes", rpcExt2, false);
+                "parameterTypes", rpcExt2, false, null, null, 0);
         final MetaData metaData3 = new MetaData("id", "127.0.0.1:8080", "contextPath",
                 "path3", RpcTypeEnum.TARS.getName(), "serviceName3", "method3",
-                "parameterTypes", rpcExt3, false);
+                "parameterTypes", rpcExt3, false, null, null, 0);
         final MetaData metaData4 = new MetaData("id", "127.0.0.1:8080", "contextPath",
                 "path4", RpcTypeEnum.TARS.getName(), "serviceName4", "method4",
-                "parameterTypes", rpcExt4, false);
+                "parameterTypes", rpcExt4, false, null, null, 0);
         List<MetaData> metaDataList = Lists.list(metaData1, metaData2, metaData3, metaData4);
         assertThrows(NullPointerException.class, () -> {
             ExecutorService executorService = Executors.newFixedThreadPool(4,
@@ -125,7 +125,7 @@ public final class ApplicationConfigCacheTest {
         final MetaData metaData = new MetaData("id", "127.0.0.1:8080", "contextPath",
                 "path6", RpcTypeEnum.TARS.getName(), "serviceName6", "method1",
                 "parameterTypes", "{\"methodInfo\":[{\"methodName\":\"method1\",\"params\":[{\"left\":\"int\",\"right\":\"param1\"},"
-                + "{\"left\":\"java.lang.Integer\",\"right\":\"param2\"}],\"returnType\":\"java.lang.String\"}]}", false);
+                + "{\"left\":\"java.lang.Integer\",\"right\":\"param2\"}],\"returnType\":\"java.lang.String\"}]}", false, null, null, 0);
         assertThrows(NullPointerException.class, () -> {
             applicationConfigCacheUnderTest.initPrx(metaData);       
             final TarsInvokePrxList result = applicationConfigCacheUnderTest.get("path6");
