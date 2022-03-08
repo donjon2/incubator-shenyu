@@ -22,6 +22,8 @@ import org.apache.shenyu.register.common.dto.MetaDataRegisterDTO;
 import org.apache.shenyu.register.common.dto.URIRegisterDTO;
 import org.apache.shenyu.spi.SPI;
 
+import java.util.Map;
+
 /**
  * Shenyu client register repository.
  */
@@ -49,6 +51,29 @@ public interface ShenyuClientRegisterRepository {
      * @param registerDTO the register dto
      */
     default void persistURI(URIRegisterDTO registerDTO) {
+    }
+
+    /**
+     * get uri.
+     *
+     * @param query the query
+     * @param path the path
+     * @param type the type
+     * @return data
+     */
+    default Object doGet(final Map<String, Object> query, final String path, final String type) {
+        return null;
+    }
+
+    /**
+     * post uri.
+     *
+     * @param <T> object
+     * @param t the body
+     * @param path the path
+     * @param type the type
+     */
+    default <T> void doPost(final T t, final String path, final String type) {
     }
     
     /**

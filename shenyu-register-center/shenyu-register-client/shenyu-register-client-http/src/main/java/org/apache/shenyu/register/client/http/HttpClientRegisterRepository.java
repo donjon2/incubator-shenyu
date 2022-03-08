@@ -32,6 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -113,6 +114,46 @@ public class HttpClientRegisterRepository extends FailbackRegistryRepository {
                 return;
             } catch (Exception e) {
                 LOGGER.error("Register admin url :{} is fail, will retry. cause:{}", server, e.getMessage());
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    @Override
+    public Object doGet(final Map<String, Object> query, final String path, final String type) {
+        for (String server : serverList) {
+            String concat = server.concat(path);
+            try {
+                if (StringUtils.isBlank(accessToken)) {
+                    this.setAccessToken();
+                    if (StringUtils.isBlank(accessToken)) {
+                        throw new NullPointerException("accessToken is null");
+                    }
+                }
+                return RegisterUtils.doGet(query, concat, type, accessToken);
+            } catch (Exception e) {
+                LOGGER.error("Get admin url :{} is fail, will retry. cause:{}", server, e.getMessage());
+                throw new RuntimeException(e);
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public <T> void doPost(final T t, final String path, final String type) {
+        for (String server : serverList) {
+            String concat = server.concat(path);
+            try {
+                if (StringUtils.isBlank(accessToken)) {
+                    this.setAccessToken();
+                    if (StringUtils.isBlank(accessToken)) {
+                        throw new NullPointerException("accessToken is null");
+                    }
+                }
+                RegisterUtils.doPost(GsonUtils.getInstance().toJson(t), concat, type, accessToken);
+                return;
+            } catch (Exception e) {
+                LOGGER.error("Post admin url :{} is fail, will retry. cause:{}", server, e.getMessage());
                 throw new RuntimeException(e);
             }
         }

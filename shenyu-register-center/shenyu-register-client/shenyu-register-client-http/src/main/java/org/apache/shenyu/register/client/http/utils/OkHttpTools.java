@@ -26,6 +26,7 @@ import okhttp3.HttpUrl;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -100,13 +101,19 @@ public final class OkHttpTools {
      *
      * @param url   the url
      * @param query the query
+     * @param headers the headers
      * @return the http result
      * @throws IOException the io exception
      */
-    public String get(final String url, final Map<String, Object> query) throws IOException {
+    public String get(final String url, final Map<String, Object> query, final Headers headers) throws IOException {
         Request.Builder reqBuild = new Request.Builder();
+        if (!Objects.isNull(headers)) {
+            reqBuild = reqBuild.headers(headers);
+        }
         HttpUrl.Builder urlBuilder = HttpUrl.parse(url).newBuilder();
-        query.forEach((K, V) -> urlBuilder.addQueryParameter(K, String.valueOf(V)));
+        if (!Objects.isNull(query)) {
+            query.forEach((K, V) -> urlBuilder.addQueryParameter(K, String.valueOf(V)));
+        }
         reqBuild.url(urlBuilder.build());
         Request request = reqBuild.build();
         return client.newCall(request).execute().body().string();

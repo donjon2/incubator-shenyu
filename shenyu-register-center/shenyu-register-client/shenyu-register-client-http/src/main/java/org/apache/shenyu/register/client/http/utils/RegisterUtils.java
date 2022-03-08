@@ -84,6 +84,48 @@ public final class RegisterUtils {
     }
 
     /**
+     * Do post.
+     *
+     * @param json        the json
+     * @param url         the url
+     * @param type        the type
+     * @param accessToken the token
+     * @throws IOException the io exception
+     */
+    public static void doPost(final String json, final String url, final String type, final String accessToken) throws IOException {
+        if (StringUtils.isEmpty(accessToken)) {
+            LOGGER.error("{} client post error accessToken is null, please check the config : {} ", type, json);
+            return;
+        }
+        Headers headers = new Headers.Builder().add(Constants.X_ACCESS_TOKEN, accessToken).build();
+        String result = OkHttpTools.getInstance().post(url, json, headers);
+        if (Objects.equals(SUCCESS, result)) {
+            LOGGER.info("{} client post success: {} ", type, json);
+        } else {
+            LOGGER.error("{} client post error: {} ", type, json);
+        }
+    }
+
+    /**
+     * Do get.
+     *
+     * @param query        the query
+     * @param url         the url
+     * @param type        the type
+     * @param accessToken the token
+     * @return data
+     * @throws IOException the io exception
+     */
+    public static Object doGet(final Map<String, Object> query, final String url, final String type, final String accessToken) throws IOException {
+        if (StringUtils.isEmpty(accessToken)) {
+            LOGGER.error("{} client get error accessToken is null, please check the config : {} ", type, query);
+            return null;
+        }
+        Headers headers = new Headers.Builder().add(Constants.X_ACCESS_TOKEN, accessToken).build();
+        return OkHttpTools.getInstance().get(url, query, headers);
+    }
+
+    /**
      * Do login.
      *
      * @param username the username
@@ -96,7 +138,7 @@ public final class RegisterUtils {
         Map<String, Object> loginMap = new HashMap<>(2);
         loginMap.put(Constants.LOGIN_NAME, username);
         loginMap.put(Constants.PASS_WORD, password);
-        String result = OkHttpTools.getInstance().get(url, loginMap);
+        String result = OkHttpTools.getInstance().get(url, loginMap, null);
         Map<String, Object> resultMap = GsonUtils.getInstance().convertToMap(result);
         if (!String.valueOf(CommonErrorCode.SUCCESSFUL).equals(String.valueOf(resultMap.get(Constants.ADMIN_RESULT_CODE)))) {
             return Optional.empty();

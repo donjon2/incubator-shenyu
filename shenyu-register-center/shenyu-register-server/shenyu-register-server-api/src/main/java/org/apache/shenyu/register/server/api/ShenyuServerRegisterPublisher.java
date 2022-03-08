@@ -31,14 +31,16 @@ public interface ShenyuServerRegisterPublisher {
      *
      * @param t the t
      */
-    void publish(Collection<? extends DataTypeParent> t);
+    default void publish(Collection<? extends DataTypeParent> t) {
+    }
     
     /**
      * Publish.
      *
      * @param dataList the dataList
      */
-    void publish(DataTypeParent dataList);
+    default void publish(DataTypeParent dataList) {
+    }
     
     /**
      * Close.

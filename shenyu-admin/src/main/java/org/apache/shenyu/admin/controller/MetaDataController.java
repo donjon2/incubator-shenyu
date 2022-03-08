@@ -20,6 +20,7 @@ package org.apache.shenyu.admin.controller;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shenyu.admin.model.dto.BatchCommonDTO;
 import org.apache.shenyu.admin.model.dto.MetaDataDTO;
+import org.apache.shenyu.admin.model.entity.MetaDataDO;
 import org.apache.shenyu.admin.model.page.CommonPager;
 import org.apache.shenyu.admin.model.page.PageParameter;
 import org.apache.shenyu.admin.model.query.MetaDataQuery;
@@ -27,6 +28,7 @@ import org.apache.shenyu.admin.model.result.ShenyuAdminResult;
 import org.apache.shenyu.admin.model.vo.MetaDataVO;
 import org.apache.shenyu.admin.service.MetaDataService;
 import org.apache.shenyu.admin.utils.ShenyuResultMessage;
+import org.apache.shenyu.common.exception.CommonErrorCode;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,6 +41,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * The type Meta data controller.
@@ -151,5 +154,36 @@ public class MetaDataController {
     public ShenyuAdminResult syncData() {
         metaDataService.syncData();
         return ShenyuAdminResult.success();
+    }
+
+    /**
+     * Query metadata by serviceName and methodName.
+     *
+     * @param serviceName service name
+     * @param methodName method name
+     * @return the shenyu result
+     */
+    @GetMapping("/findByServiceNameAndMethodName")
+    public ShenyuAdminResult findByServiceNameAndMethodName(final String serviceName, final String methodName) {
+        final MetaDataDO result = metaDataService.findByServiceNameAndMethodName(serviceName, methodName);
+        if (Objects.isNull(result)) {
+            return ShenyuAdminResult.error(CommonErrorCode.NOT_FOUND_EXCEPTION, ShenyuResultMessage.NOT_FOUND_EXCEPTION);
+        }
+        return ShenyuAdminResult.success(result);
+    }
+
+    /**
+     * Query metadata by path.
+     *
+     * @param path path
+     * @return the shenyu result
+     */
+    @GetMapping("/findByPath")
+    public ShenyuAdminResult findByPath(final String path) {
+        final MetaDataDO result = metaDataService.findByPath(path);
+        if (Objects.isNull(result)) {
+            return ShenyuAdminResult.error(CommonErrorCode.NOT_FOUND_EXCEPTION, ShenyuResultMessage.NOT_FOUND_EXCEPTION);
+        }
+        return ShenyuAdminResult.success(result);
     }
 }

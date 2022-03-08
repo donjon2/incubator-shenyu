@@ -61,20 +61,19 @@ public class RegisterServerDisruptorPublisher implements ShenyuServerRegisterPub
         providerManage = new DisruptorProviderManage<>(factory);
         providerManage.startup();
     }
-    
+
     @Override
-    public void publish(final DataTypeParent data) {
+    public void publish(final Collection<? extends DataTypeParent> t) {
         DisruptorProvider<Collection<DataTypeParent>> provider = providerManage.getProvider();
-        provider.onData(Collections.singleton(data));
+        provider.onData(t.stream().map(DataTypeParent.class::cast).collect(Collectors.toList()));
     }
-    
+
     @Override
-    public void publish(final Collection<? extends DataTypeParent> dataList) {
+    public void publish(final DataTypeParent dataList) {
         DisruptorProvider<Collection<DataTypeParent>> provider = providerManage.getProvider();
-        provider.onData(dataList.stream().map(DataTypeParent.class::cast).collect(Collectors.toList()));
-        
+        provider.onData(Collections.singleton(dataList));
     }
-    
+
     @Override
     public void close() {
         providerManage.getProvider().shutdown();
