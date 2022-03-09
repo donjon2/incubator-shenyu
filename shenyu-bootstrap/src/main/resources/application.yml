@@ -114,17 +114,17 @@ shenyu:
   #      connectionTimeout: 2000
   #    http:
   #      url: http://localhost:9095
-      nacos:
-        url: localhost:8848
-        namespace: a2b5639a-400a-4aca-b2a8-1dc048f2d687
-        username: nacos
-        password: nacos
-        acm:
-          enabled: false
-          endpoint: acm.aliyun.com
-          namespace:
-          accessKey:
-          secretKey:
+  #    nacos:
+  #      url: localhost:8848
+  #      namespace: 1c10d748-af86-43b9-8265-75f487d20c6c
+  #      username:
+  #      password:
+  #      acm:
+  #        enabled: false
+  #        endpoint: acm.aliyun.com
+  #        namespace:
+  #        accessKey:
+  #        secretKey:
   #    etcd:
   #      url: http://localhost:2379
   #    consul:
