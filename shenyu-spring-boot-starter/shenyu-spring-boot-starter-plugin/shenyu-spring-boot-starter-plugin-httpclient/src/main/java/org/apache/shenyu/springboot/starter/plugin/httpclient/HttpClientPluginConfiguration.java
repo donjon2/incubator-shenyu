@@ -39,9 +39,10 @@ import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.client.HttpClient;
 import reactor.netty.resources.ConnectionProvider;
-import reactor.netty.tcp.ProxyProvider;
+import reactor.netty.transport.ProxyProvider;
 
 import java.security.cert.X509Certificate;
+import java.time.Duration;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
@@ -76,10 +77,25 @@ public class HttpClientPluginConfiguration {
         if (pool.getType() == HttpClientProperties.Pool.PoolType.DISABLED) {
             connectionProvider = ConnectionProvider.newConnection();
         } else if (pool.getType() == HttpClientProperties.Pool.PoolType.FIXED) {
-            connectionProvider = ConnectionProvider.fixed(pool.getName(),
-                    pool.getMaxConnections(), pool.getAcquireTimeout(), pool.getMaxIdleTime());
+            ConnectionProvider.Builder builder = ConnectionProvider.builder("fixed")
+                    .name(pool.getName());
+            if (pool.getMaxConnections() != null && pool.getMaxConnections() > 0) {
+                builder = builder.maxConnections(pool.getMaxConnections());
+            }
+            if (pool.getAcquireTimeout() != null && pool.getAcquireTimeout() > 0L) {
+                builder = builder.pendingAcquireTimeout(Duration.ofMillis(pool.getAcquireTimeout()));
+            }
+            if (pool.getMaxIdleTime() != null) {
+                builder = builder.maxIdleTime(pool.getMaxIdleTime());
+            }
+            connectionProvider = builder.build();
         } else {
-            connectionProvider = ConnectionProvider.elastic(pool.getName(), pool.getMaxIdleTime());
+            ConnectionProvider.Builder builder = ConnectionProvider.builder("elastic")
+                    .name(pool.getName());
+            if (pool.getMaxIdleTime() != null) {
+                builder = builder.maxIdleTime(pool.getMaxIdleTime());
+            }
+            connectionProvider = builder.build();
         }
         HttpClient httpClient = HttpClient.create(connectionProvider)
                 .tcpConfiguration(tcpClient -> {

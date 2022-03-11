@@ -83,9 +83,9 @@ public abstract class AbstractHttpClientPlugin<R> implements ShenyuPlugin {
                 .doOnError(e -> LOG.error(e.getMessage(), e));
         if (RetryEnum.CURRENT.getName().equals(retryStrategy)) {
             //old version of DividePlugin and SpringCloudPlugin will run on this
-            return response.retryWhen(Retry.anyOf(TimeoutException.class, ConnectTimeoutException.class, ReadTimeoutException.class, IllegalStateException.class)
-                    .retryMax(retryTimes)
-                    .backoff(Backoff.exponential(Duration.ofMillis(200), Duration.ofSeconds(20), 2, true)))
+            return response.retryWhen(reactor.util.retry.Retry.withThrowable(Retry.anyOf(TimeoutException.class, ConnectTimeoutException.class, ReadTimeoutException.class, IllegalStateException.class)
+                            .retryMax(retryTimes)
+                            .backoff(Backoff.exponential(Duration.ofMillis(200), Duration.ofSeconds(20), 2, true))))
                     .onErrorMap(TimeoutException.class, th -> new ResponseStatusException(HttpStatus.GATEWAY_TIMEOUT, th.getMessage(), th))
                     .flatMap((Function<Object, Mono<? extends Void>>) o -> chain.execute(exchange));
         }
