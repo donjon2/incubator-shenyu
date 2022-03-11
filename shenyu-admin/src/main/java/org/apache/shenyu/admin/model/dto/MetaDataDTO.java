@@ -98,17 +98,17 @@ public class MetaDataDTO implements Serializable {
     private Boolean enabled;
 
     /**
-     * request json schema
+     * request json schema.
      */
     private String requestSchema;
 
     /**
-     * request template
+     * request template.
      */
     private String requestTemplate;
 
     /**
-     * data scope
+     * data scope.
      */
     private Integer dataScope;
 
@@ -381,7 +381,6 @@ public class MetaDataDTO implements Serializable {
     public void setDataScope(final Integer dataScope) {
         this.dataScope = dataScope;
     }
-
 
     @Override
     public boolean equals(final Object o) {
