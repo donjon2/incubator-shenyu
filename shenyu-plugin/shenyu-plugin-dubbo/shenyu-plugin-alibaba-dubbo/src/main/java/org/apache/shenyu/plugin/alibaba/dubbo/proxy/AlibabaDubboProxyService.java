@@ -76,6 +76,7 @@ public class AlibabaDubboProxyService {
             } else {
                 pair = dubboParamResolveService.buildParameter(body, metaData.getParameterTypes());
             }
+            RpcContext.getContext().setAttachment("token", "ttttttoooo");
             genericService.$invoke(metaData.getMethodName(), pair.getLeft(), pair.getRight());
         } catch (GenericException e) {
             LOG.error("dubbo invoker have exception", e);

@@ -26,6 +26,14 @@ spring:
     enabled: true
     prefix: classpath:/static/
     suffix: .html
+  api:
+    pathPrefix: "/rest"
+    baseContext: "/warehouse"
+    versioning:
+      enabled: true
+      versionPrefix: v
+      versionInContentType: false
+      contentTypeVnd:
 
 mybatis:
   config-location: classpath:/mybatis/mybatis-config.xml
@@ -87,10 +95,9 @@ shenyu:
       - /websocket
       - /error
       - /actuator/health
-      - /swagger-ui.html
+      - /swagger-ui/**
       - /webjars/**
-      - /swagger-resources/**
-      - /v2/api-docs
+      - /v3/api-docs/**
       - /csrf
   swagger:
     enable: true

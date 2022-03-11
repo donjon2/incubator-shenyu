@@ -468,6 +468,11 @@ public interface Constants {
     String DUBBO_RULE_ID = "dubboRuleId";
 
     /**
+     * dubbo gray release rule id.
+     */
+    String DUBBO_META_ID = "dubboMetaId";
+
+    /**
      * dubbo remote address.
      */
     String DUBBO_REMOTE_ADDRESS = "dubboRemoteAddress";

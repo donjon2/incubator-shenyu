@@ -100,7 +100,7 @@
         <okhttp.version>3.7.0</okhttp.version>
         <prometheus-java-client.version>0.10.0</prometheus-java-client.version>
         <prometheus-jmx.version>0.15.0</prometheus-jmx.version>
-        <swagger.version>2.9.2</swagger.version>
+<!--        <swagger.version>2.9.2</swagger.version>-->
         <sofa.rpc.version>5.7.6</sofa.rpc.version>
         <tars.version>1.7.2</tars.version>
         <skipTests>false</skipTests>
@@ -369,17 +369,17 @@
                 <version>${pagehelper.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${swagger.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>io.springfox</groupId>-->
+<!--                <artifactId>springfox-swagger2</artifactId>-->
+<!--                <version>${swagger.version}</version>-->
+<!--            </dependency>-->
 
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${swagger.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>io.springfox</groupId>-->
+<!--                <artifactId>springfox-swagger-ui</artifactId>-->
+<!--                <version>${swagger.version}</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>com.tencent.tars</groupId>
