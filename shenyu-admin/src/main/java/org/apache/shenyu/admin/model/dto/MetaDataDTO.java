@@ -17,6 +17,11 @@
 
 package org.apache.shenyu.admin.model.dto;
 
+import org.apache.shenyu.admin.service.provider.MetaDataPathProvider;
+import org.apache.shenyu.admin.validation.annotation.Existed;
+import org.apache.shenyu.common.constant.AdminConstants;
+
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
@@ -27,36 +32,84 @@ public class MetaDataDTO implements Serializable {
 
     private String id;
 
+    /**
+     * appName must is not null.
+     */
     @NotNull
+    @NotBlank
     private String appName;
 
+    /**
+     * context path is not null.
+     */
+    @NotBlank
     private String contextPath;
 
+    /**
+     * the path is not null.
+     */
+    @NotBlank
+    @Existed(provider = MetaDataPathProvider.class, reverse = true, message = AdminConstants.DATA_PATH_IS_EXIST)
     private String path;
 
+    /**
+     * rule name is not null.
+     */
+    @NotBlank
     private String ruleName;
 
+    /**
+     * path desc.
+     */
     private String pathDesc;
 
+    /**
+     * rpc tyoe is not null.
+     */
+    @NotBlank
     private String rpcType;
 
+    /**
+     * service name is not null.
+     */
+    @NotBlank
     private String serviceName;
 
+    /**
+     * method name is not null.
+     */
+    @NotBlank
     private String methodName;
 
+    /**
+     * parameter typs.
+     */
     private String parameterTypes;
 
+    /**
+     * rpc ext.
+     */
     private String rpcExt;
 
     /**
      * whether enabled.
      */
+    @NotNull
     private Boolean enabled;
 
+    /**
+     * request json schema
+     */
     private String requestSchema;
 
+    /**
+     * request template
+     */
     private String requestTemplate;
 
+    /**
+     * data scope
+     */
     private Integer dataScope;
 
     /**
@@ -328,6 +381,7 @@ public class MetaDataDTO implements Serializable {
     public void setDataScope(final Integer dataScope) {
         this.dataScope = dataScope;
     }
+
 
     @Override
     public boolean equals(final Object o) {

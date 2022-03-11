@@ -15,33 +15,28 @@
  * limitations under the License.
  */
 
-package org.apache.shenyu.agent.plugin.logging.rocketmq;
+package org.apache.shenyu.admin.service.provider;
 
-import org.apache.shenyu.agent.plugin.logging.LogCollector;
-import org.apache.shenyu.agent.plugin.logging.common.AbstractLogCollector;
-import org.apache.shenyu.agent.plugin.logging.spi.LogCollectClient;
+import org.apache.shenyu.admin.mapper.MetaDataMapper;
+import org.apache.shenyu.admin.validation.ExistProvider;
+import org.springframework.stereotype.Component;
 
-import java.util.Objects;
+import java.io.Serializable;
 
 /**
- * queue-based logging collector.
+ * MetaDataPathProvider.
  */
-public class RocketMQLogCollector extends AbstractLogCollector {
-
-    private static RocketMQLogCollector instance;
-
-    public RocketMQLogCollector(final LogCollectClient logCollectClient) {
-        super(logCollectClient);
-        instance = this;
+@Component
+public class MetaDataPathProvider implements ExistProvider {
+    
+    private final MetaDataMapper metaDataMapper;
+    
+    public MetaDataPathProvider(final MetaDataMapper metaDataMapper) {
+        this.metaDataMapper = metaDataMapper;
     }
-
-    /**
-     * get RocketMQLogCollector instance.
-     *
-     * @return RocketMQLogCollector instance
-     */
-    public static LogCollector getInstance() {
-        return Objects.requireNonNull(instance);
+    
+    @Override
+    public Boolean existed(final Serializable key) {
+        return metaDataMapper.pathExisted(key);
     }
-
 }
