@@ -124,10 +124,16 @@ public class HttpClientPluginConfiguration {
                         connection.addHandlerLast(new WriteTimeoutHandler(properties.getWriteTimeout(), TimeUnit.MILLISECONDS));
                         connection.addHandlerLast(new ReadTimeoutHandler(properties.getReadTimeout(), TimeUnit.MILLISECONDS));
                     });
+                    HttpClientProperties.ThreadPool threadPool = properties.getThreadPool();
+                    if (StringUtils.isNotEmpty(threadPool.getPrefix())) {
+                        LoopResources resources = LoopResources.create(threadPool.getPrefix(),
+                                threadPool.getSelectCount(), threadPool.getWorkerCount(), threadPool.getDaemon());
+                        tcpClient = tcpClient.runOn(resources, threadPool.getPreferNative());
+                    }
                     return tcpClient;
                 });
         HttpClientProperties.Ssl ssl = properties.getSsl();
-        if (StringUtils.isNotEmpty(ssl.getKeyStorePath()) 
+        if (StringUtils.isNotEmpty(ssl.getKeyStorePath())
                 || ArrayUtils.isNotEmpty(ssl.getTrustedX509CertificatesForTrustManager())
                 || ssl.isUseInsecureTrustManager()) {
             httpClient = httpClient.secure(sslContextSpec -> {
