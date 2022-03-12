@@ -39,6 +39,7 @@ import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.client.HttpClient;
 import reactor.netty.resources.ConnectionProvider;
+import reactor.netty.resources.LoopResources;
 import reactor.netty.transport.ProxyProvider;
 
 import java.security.cert.X509Certificate;
