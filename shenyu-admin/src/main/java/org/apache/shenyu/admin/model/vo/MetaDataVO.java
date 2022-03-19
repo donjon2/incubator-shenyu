@@ -396,7 +396,8 @@ public class MetaDataVO implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, id, dateCreated, dateUpdated, enabled, requestSchema, additionalParameter, additionalAttachment);
+        return Objects.hash(appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, id, dateCreated, dateUpdated, enabled, requestSchema, additionalParameter,
+                additionalAttachment);
     }
 
     @Override

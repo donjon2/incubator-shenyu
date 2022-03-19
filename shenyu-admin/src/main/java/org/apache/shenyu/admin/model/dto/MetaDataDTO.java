@@ -410,6 +410,7 @@ public class MetaDataDTO implements Serializable {
     
     @Override
     public int hashCode() {
-        return Objects.hash(id, appName, contextPath, path, ruleName, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, additionalParameter, additionalAttachment);
+        return Objects.hash(id, appName, contextPath, path, ruleName, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, additionalParameter,
+                additionalAttachment);
     }
 }
