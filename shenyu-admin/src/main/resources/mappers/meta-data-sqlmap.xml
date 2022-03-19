@@ -36,7 +36,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, date_created, date_updated, app_name, path,path_desc,rpc_type, service_name,method_name,parameter_types,rpc_ext,enabled,request_schema,additional_arameter
+        id, date_created, date_updated, app_name, path,path_desc,rpc_type, service_name,method_name,parameter_types,rpc_ext,enabled,request_schema,additional_parameter
     </sql>
 
     <select id="selectById" parameterType="java.lang.String" resultMap="BaseResultMap">
