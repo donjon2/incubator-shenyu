@@ -102,14 +102,9 @@ public class MetaDataDTO implements Serializable {
     private String requestSchema;
 
     /**
-     * request template.
+     * additional parameter.
      */
-    private String requestTemplate;
-
-    /**
-     * data scope.
-     */
-    private Integer dataScope;
+    private String additionalParameter;
 
     /**
      * Gets the value of id.
@@ -346,39 +341,21 @@ public class MetaDataDTO implements Serializable {
     }
 
     /**
-     * Gets the value of requestTemplate.
+     * Gets the value of additionalParameter.
      *
-     * @return the value of requestTemplate
+     * @return the value of additionalParameter
      */
-    public String getRequestTemplate() {
-        return requestTemplate;
+    public String getAdditionalParameter() {
+        return additionalParameter;
     }
 
     /**
-     * Sets the requestTemplate.
+     * Sets the additionalParameter.
      *
-     * @param requestTemplate requestTemplate
+     * @param additionalParameter additionalParameter
      */
-    public void setRequestTemplate(final String requestTemplate) {
-        this.requestTemplate = requestTemplate;
-    }
-
-    /**
-     * Gets the value of dataScope.
-     *
-     * @return the value of dataScope
-     */
-    public Integer getDataScope() {
-        return dataScope;
-    }
-
-    /**
-     * Sets the dataScope.
-     *
-     * @param dataScope dataScope
-     */
-    public void setDataScope(final Integer dataScope) {
-        this.dataScope = dataScope;
+    public void setAdditionalParameter(final String additionalParameter) {
+        this.additionalParameter = additionalParameter;
     }
 
     @Override
@@ -403,12 +380,11 @@ public class MetaDataDTO implements Serializable {
                 && Objects.equals(rpcExt, that.rpcExt)
                 && Objects.equals(enabled, that.enabled)
                 && Objects.equals(requestSchema, that.requestSchema)
-                && Objects.equals(requestTemplate, that.requestTemplate)
-                && Objects.equals(dataScope, that.dataScope);
+                && Objects.equals(additionalParameter, that.additionalParameter);
     }
     
     @Override
     public int hashCode() {
-        return Objects.hash(id, appName, contextPath, path, ruleName, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, requestTemplate, dataScope);
+        return Objects.hash(id, appName, contextPath, path, ruleName, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, additionalParameter);
     }
 }

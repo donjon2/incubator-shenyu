@@ -51,9 +51,7 @@ public final class MetaDataDO extends BaseDO implements Serializable {
 
     private String requestSchema;
 
-    private String requestTemplate;
-
-    private Integer dataScope;
+    private String additionalParameter;
 
     public MetaDataDO() {
     }
@@ -68,8 +66,7 @@ public final class MetaDataDO extends BaseDO implements Serializable {
                       final String rpcExt,
                       final Boolean enabled,
                       final String requestSchema,
-                      final String requestTemplate,
-                      final Integer dataScope) {
+                      final String additionalParameter) {
         this.appName = appName;
         this.path = path;
         this.pathDesc = pathDesc;
@@ -80,8 +77,7 @@ public final class MetaDataDO extends BaseDO implements Serializable {
         this.rpcExt = rpcExt;
         this.enabled = enabled;
         this.requestSchema = requestSchema;
-        this.requestTemplate = requestTemplate;
-        this.dataScope = dataScope;
+        this.additionalParameter = additionalParameter;
     }
 
     /**
@@ -265,39 +261,21 @@ public final class MetaDataDO extends BaseDO implements Serializable {
     }
 
     /**
-     * Gets the value of requestTemplate.
+     * Gets the value of additionalParameter.
      *
-     * @return the value of requestTemplate
+     * @return the value of additionalParameter
      */
-    public String getRequestTemplate() {
-        return requestTemplate;
+    public String getAdditionalParameter() {
+        return additionalParameter;
     }
 
     /**
-     * Sets the requestTemplate.
+     * Sets the additionalParameter.
      *
-     * @param requestTemplate requestTemplate
+     * @param additionalParameter additionalParameter
      */
-    public void setRequestTemplate(final String requestTemplate) {
-        this.requestTemplate = requestTemplate;
-    }
-
-    /**
-     * Gets the value of dataScope.
-     *
-     * @return the value of dataScope
-     */
-    public Integer getDataScope() {
-        return dataScope;
-    }
-
-    /**
-     * Sets the dataScope.
-     *
-     * @param dataScope dataScope
-     */
-    public void setDataScope(final Integer dataScope) {
-        this.dataScope = dataScope;
+    public void setAdditionalParameter(final String additionalParameter) {
+        this.additionalParameter = additionalParameter;
     }
 
     /**
@@ -331,13 +309,12 @@ public final class MetaDataDO extends BaseDO implements Serializable {
                 && Objects.equals(rpcExt, that.rpcExt)
                 && Objects.equals(enabled, that.enabled)
                 && Objects.equals(requestSchema, that.requestSchema)
-                && Objects.equals(requestTemplate, that.requestTemplate)
-                && Objects.equals(dataScope, that.dataScope);
+                && Objects.equals(additionalParameter, that.additionalParameter);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, requestTemplate, dataScope);
+        return Objects.hash(super.hashCode(), appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, additionalParameter);
     }
 
     public static final class MetaDataDOBuilder {
@@ -368,9 +345,7 @@ public final class MetaDataDO extends BaseDO implements Serializable {
 
         private String requestSchema;
 
-        private String requestTemplate;
-
-        private Integer dataScope;
+        private String additionalParameter;
 
         private MetaDataDOBuilder() {
         }
@@ -519,24 +494,13 @@ public final class MetaDataDO extends BaseDO implements Serializable {
         }
 
         /**
-         * requestTemplate.
+         * additionalParameter.
          *
-         * @param requestTemplate the requestTemplate.
+         * @param additionalParameter the additionalParameter.
          * @return MetaDataDOBuilder.
          */
-        public MetaDataDOBuilder requestTemplate(final String requestTemplate) {
-            this.requestTemplate = requestTemplate;
-            return this;
-        }
-
-        /**
-         * dataScope.
-         *
-         * @param dataScope the dataScope.
-         * @return MetaDataDOBuilder.
-         */
-        public MetaDataDOBuilder dataScope(final Integer dataScope) {
-            this.dataScope = dataScope;
+        public MetaDataDOBuilder additionalParameter(final String additionalParameter) {
+            this.additionalParameter = additionalParameter;
             return this;
         }
 
@@ -560,8 +524,7 @@ public final class MetaDataDO extends BaseDO implements Serializable {
             metaDataDO.setRpcExt(rpcExt);
             metaDataDO.setEnabled(enabled);
             metaDataDO.setRequestSchema(requestSchema);
-            metaDataDO.setRequestTemplate(requestTemplate);
-            metaDataDO.setDataScope(dataScope);
+            metaDataDO.setAdditionalParameter(additionalParameter);
             return metaDataDO;
         }
     }

@@ -97,8 +97,7 @@ public final class LocalMetadataControllerTest {
         metaData.setRpcExt("rpcExt");
         metaData.setEnabled(Boolean.TRUE);
         metaData.setRequestSchema("requestSchema");
-        metaData.setRequestTemplate("requestTemplate");
-        metaData.setDataScope(0);
+        metaData.setAdditionalParameter("additionalParameter");
         return metaData;
     }
 

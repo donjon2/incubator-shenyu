@@ -36,7 +36,7 @@ public class MetaDataTest {
     @Test
     public void testUpdateContextPath() {
         MetaData metaData = new MetaData("id", "appName", "contextPath", "path", "rpcType",
-                "serviceName", "methodName", "parameterTypes", "rpcExt", true, "requestSchema", "requestTemplate", 0);
+                "serviceName", "methodName", "parameterTypes", "rpcExt", true, "requestSchema", "additionalParameter");
         metaData.setPath(PATH);
         metaData.updateContextPath();
         assertEquals(metaData.getContextPath(), CONTEXT_PATH);

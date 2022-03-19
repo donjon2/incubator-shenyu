@@ -32,12 +32,11 @@
         <result column="rpc_ext" jdbcType="VARCHAR" property="rpcExt"/>
         <result column="enabled" jdbcType="TINYINT" property="enabled"/>
         <result column="request_schema" jdbcType="VARCHAR" property="requestSchema"/>
-        <result column="request_template" jdbcType="VARCHAR" property="requestTemplate"/>
-        <result column="data_scope" jdbcType="TINYINT" property="dataScope"/>
+        <result column="additional_parameter" jdbcType="VARCHAR" property="additionalParameter"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, date_created, date_updated, app_name, path,path_desc,rpc_type, service_name,method_name,parameter_types,rpc_ext,enabled,request_schema,request_template,data_scope
+        id, date_created, date_updated, app_name, path,path_desc,rpc_type, service_name,method_name,parameter_types,rpc_ext,enabled,request_schema,additional_arameter
     </sql>
 
     <select id="selectById" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -127,7 +126,7 @@
     </select>
 
     <insert id="insert" parameterType="org.apache.shenyu.admin.model.entity.MetaDataDO">
-        insert into meta_data (id, date_created, date_updated, app_name, path,path_desc,rpc_type, service_name,method_name,parameter_types,rpc_ext,enabled, request_schema, request_template, data_scope )
+        insert into meta_data (id, date_created, date_updated, app_name, path,path_desc,rpc_type, service_name,method_name,parameter_types,rpc_ext,enabled, request_schema, additional_parameter )
         values (#{id,jdbcType=VARCHAR}, #{dateCreated,jdbcType=TIMESTAMP}, #{dateUpdated,jdbcType=TIMESTAMP},
          #{appName,jdbcType=VARCHAR},
          #{path,jdbcType=VARCHAR},
@@ -139,8 +138,7 @@
          #{rpcExt,jdbcType=VARCHAR},
          #{enabled,jdbcType=TINYINT},
          #{requestSchema,jdbcType=VARCHAR},
-         #{requestTemplate,jdbcType=VARCHAR},
-         #{dataScope,jdbcType=TINYINT})
+         #{additionalParameter,jdbcType=VARCHAR})
     </insert>
 
 
@@ -155,8 +153,7 @@
         parameter_types = #{parameterTypes,jdbcType=VARCHAR},
         rpc_ext= #{rpcExt,jdbcType=VARCHAR},
         request_schema= #{requestSchema,jdbcType=VARCHAR},
-        request_template= #{requestTemplate,jdbcType=VARCHAR},
-        data_scope= #{dataScope,jdbcType=TINYINT}
+        additional_parameter= #{additionalParameter,jdbcType=VARCHAR}
         where id = #{id,jdbcType=VARCHAR}
     </update>
 

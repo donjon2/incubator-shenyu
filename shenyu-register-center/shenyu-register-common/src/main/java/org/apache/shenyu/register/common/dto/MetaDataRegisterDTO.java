@@ -53,9 +53,7 @@ public class MetaDataRegisterDTO implements DataTypeParent {
 
     private String requestSchema;
 
-    private String requestTemplate;
-
-    private Integer dataScope;
+    private String additionalParameter;
 
     private String host;
 
@@ -90,7 +88,7 @@ public class MetaDataRegisterDTO implements DataTypeParent {
                                final String methodName, final String ruleName,
                                final String parameterTypes, final String rpcExt,
                                final boolean enabled, final String requestSchema,
-                               final String requestTemplate, final Integer dataScope,
+                               final String additionalParameter,
                                final String host, final Integer port,
                                final List<String> pluginNames, final boolean registerMetaData) {
         this.appName = appName;
@@ -105,8 +103,7 @@ public class MetaDataRegisterDTO implements DataTypeParent {
         this.rpcExt = rpcExt;
         this.enabled = enabled;
         this.requestSchema = requestSchema;
-        this.requestTemplate = requestTemplate;
-        this.dataScope = dataScope;
+        this.additionalParameter = additionalParameter;
         this.host = host;
         this.port = port;
         this.pluginNames = pluginNames;
@@ -132,8 +129,7 @@ public class MetaDataRegisterDTO implements DataTypeParent {
         rpcExt = builder.rpcExt;
         enabled = builder.enabled;
         requestSchema = builder.requestSchema;
-        requestTemplate = builder.requestTemplate;
-        dataScope = builder.dataScope;
+        additionalParameter = builder.additionalParameter;
         host = builder.host;
         port = builder.port;
         pluginNames = builder.pluginNames;
@@ -371,39 +367,21 @@ public class MetaDataRegisterDTO implements DataTypeParent {
     }
 
     /**
-     * getRequestTemplate.
+     * get additionalParameter.
      *
-     * @return String of requestTemplate
+     * @return String of additionalParameter
      */
-    public String getRequestTemplate() {
-        return requestTemplate;
+    public String getAdditionalParameter() {
+        return additionalParameter;
     }
 
     /**
-     * setRequestTemplate.
+     * set additionalParameter.
      *
-     * @param requestTemplate requestTemplate
+     * @param additionalParameter additionalParameter
      */
-    public void setRequestTemplate(final String requestTemplate) {
-        this.requestTemplate = requestTemplate;
-    }
-
-    /**
-     * getDataScope.
-     *
-     * @return Integer of dataScope
-     */
-    public Integer getDataScope() {
-        return dataScope;
-    }
-
-    /**
-     * setDataScope.
-     *
-     * @param dataScope dataScope
-     */
-    public void setDataScope(final Integer dataScope) {
-        this.dataScope = dataScope;
+    public void setAdditionalParameter(final String additionalParameter) {
+        this.additionalParameter = additionalParameter;
     }
 
     /**
@@ -543,9 +521,7 @@ public class MetaDataRegisterDTO implements DataTypeParent {
 
         private String requestSchema;
 
-        private String requestTemplate;
-
-        private Integer dataScope;
+        private String additionalParameter;
 
         private String host;
 
@@ -691,24 +667,13 @@ public class MetaDataRegisterDTO implements DataTypeParent {
         }
 
         /**
-         * requestTemplate.
+         * additionalParameter.
          *
-         * @param requestTemplate requestTemplate
+         * @param additionalParameter additionalParameter
          * @return Builder builder
          */
-        public Builder requestTemplate(final String requestTemplate) {
-            this.requestTemplate = requestTemplate;
-            return this;
-        }
-
-        /**
-         * dataScope.
-         *
-         * @param dataScope dataScope
-         * @return Builder builder
-         */
-        public Builder dataScope(final Integer dataScope) {
-            this.dataScope = dataScope;
+        public Builder additionalParameter(final String additionalParameter) {
+            this.additionalParameter = additionalParameter;
             return this;
         }
     

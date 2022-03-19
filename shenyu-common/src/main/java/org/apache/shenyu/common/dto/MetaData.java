@@ -45,9 +45,7 @@ public class MetaData {
 
     private String requestSchema;
 
-    private String requestTemplate;
-
-    private Integer dataScope;
+    private String additionalParameter;
 
     /**
      * no args constructor.
@@ -69,12 +67,11 @@ public class MetaData {
      * @param rpcExt         rpcExt
      * @param enabled        enabled
      * @param requestSchema  requestSchema
-     * @param requestTemplate requestTemplate
-     * @param dataScope      dataScope
+     * @param additionalParameter additionalParameter
      */
     public MetaData(final String id, final String appName, final String contextPath, final String path, final String rpcType, final String serviceName,
                     final String methodName, final String parameterTypes, final String rpcExt, final Boolean enabled,
-                    final String requestSchema, final String requestTemplate, final Integer dataScope) {
+                    final String requestSchema, final String additionalParameter) {
         this.id = id;
         this.appName = appName;
         this.contextPath = contextPath;
@@ -86,8 +83,7 @@ public class MetaData {
         this.rpcExt = rpcExt;
         this.enabled = enabled;
         this.requestSchema = requestSchema;
-        this.requestTemplate = requestTemplate;
-        this.dataScope = dataScope;
+        this.additionalParameter = additionalParameter;
     }
 
     /**
@@ -107,8 +103,7 @@ public class MetaData {
         this.rpcExt = builder.rpcExt;
         this.enabled = builder.enabled;
         this.requestSchema = builder.requestSchema;
-        this.requestTemplate = builder.requestTemplate;
-        this.dataScope = builder.dataScope;
+        this.additionalParameter = builder.additionalParameter;
     }
 
     /**
@@ -319,39 +314,21 @@ public class MetaData {
     }
 
     /**
-     * get requestTemplate.
+     * get additionalParameter.
      *
-     * @return requestTemplate
+     * @return additionalParameter
      */
-    public String getRequestTemplate() {
-        return requestTemplate;
+    public String getAdditionalParameter() {
+        return additionalParameter;
     }
 
     /**
-     * set requestTemplate.
+     * set additionalParameter.
      *
-     * @param requestTemplate requestTemplate
+     * @param additionalParameter additionalParameter
      */
-    public void setRequestTemplate(final String requestTemplate) {
-        this.requestTemplate = requestTemplate;
-    }
-
-    /**
-     * get dataScope.
-     *
-     * @return dataScope
-     */
-    public Integer getDataScope() {
-        return dataScope;
-    }
-
-    /**
-     * set dataScope.
-     *
-     * @param dataScope dataScope
-     */
-    public void setDataScope(final Integer dataScope) {
-        this.dataScope = dataScope;
+    public void setAdditionalParameter(final String additionalParameter) {
+        this.additionalParameter = additionalParameter;
     }
 
     @Override
@@ -366,7 +343,8 @@ public class MetaData {
         return Objects.equals(id, metaData.id) && Objects.equals(appName, metaData.appName) && Objects.equals(contextPath, metaData.contextPath)
                 && Objects.equals(path, metaData.path) && Objects.equals(rpcType, metaData.rpcType) && Objects.equals(serviceName, metaData.serviceName)
                 && Objects.equals(methodName, metaData.methodName) && Objects.equals(parameterTypes, metaData.parameterTypes)
-                && Objects.equals(rpcExt, metaData.rpcExt) && Objects.equals(enabled, metaData.enabled);
+                && Objects.equals(rpcExt, metaData.rpcExt) && Objects.equals(enabled, metaData.enabled) && Objects.equals(requestSchema, metaData.requestSchema)
+                && Objects.equals(additionalParameter, metaData.additionalParameter);
     }
 
     @Override
@@ -476,9 +454,7 @@ public class MetaData {
 
         private String requestSchema;
 
-        private String requestTemplate;
-
-        private Integer dataScope;
+        private String additionalParameter;
 
         /**
          * no args constructor.
@@ -617,24 +593,13 @@ public class MetaData {
         }
 
         /**
-         * build requestTemplate.
+         * build additionalParameter.
          *
-         * @param requestTemplate requestTemplate
+         * @param additionalParameter additionalParameter
          * @return this
          */
-        public Builder requestTemplate(final String requestTemplate) {
-            this.requestTemplate = requestTemplate;
-            return this;
-        }
-
-        /**
-         * build dataScope.
-         *
-         * @param dataScope dataScope
-         * @return this
-         */
-        public Builder dataScope(final Integer dataScope) {
-            this.dataScope = dataScope;
+        public Builder additionalParameter(final String additionalParameter) {
+            this.additionalParameter = additionalParameter;
             return this;
         }
     }

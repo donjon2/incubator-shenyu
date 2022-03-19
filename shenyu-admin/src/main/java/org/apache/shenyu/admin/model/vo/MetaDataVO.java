@@ -59,9 +59,7 @@ public class MetaDataVO implements Serializable {
 
     private String requestSchema;
 
-    private String requestTemplate;
-
-    private Integer dataScope;
+    private String additionalParameter;
 
     public MetaDataVO() {
     }
@@ -79,8 +77,7 @@ public class MetaDataVO implements Serializable {
                       final String dateUpdated,
                       final Boolean enabled,
                       final String requestSchema,
-                      final String requestTemplate,
-                      final Integer dataScope) {
+                      final String additionalParameter) {
         this.appName = appName;
         this.path = path;
         this.pathDesc = pathDesc;
@@ -94,8 +91,7 @@ public class MetaDataVO implements Serializable {
         this.dateUpdated = dateUpdated;
         this.enabled = enabled;
         this.requestSchema = requestSchema;
-        this.requestTemplate = requestTemplate;
-        this.dataScope = dataScope;
+        this.additionalParameter = additionalParameter;
     }
 
     /**
@@ -333,39 +329,21 @@ public class MetaDataVO implements Serializable {
     }
 
     /**
-     * Gets the value of requestTemplate.
+     * Gets the value of additionalParameter.
      *
-     * @return the value of requestTemplate
+     * @return the value of additionalParameter
      */
-    public String getRequestTemplate() {
-        return requestTemplate;
+    public String getAdditionalParameter() {
+        return additionalParameter;
     }
 
     /**
-     * Sets the requestTemplate.
+     * Sets the additionalParameter.
      *
-     * @param requestTemplate requestTemplate
+     * @param additionalParameter additionalParameter
      */
-    public void setRequestTemplate(final String requestTemplate) {
-        this.requestTemplate = requestTemplate;
-    }
-
-    /**
-     * Gets the value of dataScope.
-     *
-     * @return the value of dataScope
-     */
-    public Integer getDataScope() {
-        return dataScope;
-    }
-
-    /**
-     * Sets the dataScope.
-     *
-     * @param dataScope dataScope
-     */
-    public void setDataScope(final Integer dataScope) {
-        this.dataScope = dataScope;
+    public void setAdditionalParameter(final String additionalParameter) {
+        this.additionalParameter = additionalParameter;
     }
 
     @Override
@@ -390,13 +368,12 @@ public class MetaDataVO implements Serializable {
                 && Objects.equals(dateUpdated, that.dateUpdated)
                 && Objects.equals(enabled, that.enabled)
                 && Objects.equals(requestSchema, that.requestSchema)
-                && Objects.equals(requestTemplate, that.requestTemplate)
-                && Objects.equals(dataScope, that.dataScope);
+                && Objects.equals(additionalParameter, that.additionalParameter);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, id, dateCreated, dateUpdated, enabled, requestSchema, requestTemplate, dataScope);
+        return Objects.hash(appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, id, dateCreated, dateUpdated, enabled, requestSchema, additionalParameter);
     }
 
     @Override
@@ -415,8 +392,7 @@ public class MetaDataVO implements Serializable {
                 + ", dateUpdated='" + dateUpdated + '\''
                 + ", enabled=" + enabled
                 + ", requestSchema=" + requestSchema
-                + ", requestTemplate=" + requestTemplate
-                + ", dataScope=" + dataScope
+                + ", additionalParameter=" + additionalParameter
                 + '}';
     }
 }
