@@ -561,6 +561,7 @@ public final class MetaDataDO extends BaseDO implements Serializable {
             metaDataDO.setEnabled(enabled);
             metaDataDO.setRequestSchema(requestSchema);
             metaDataDO.setAdditionalParameter(additionalParameter);
+            metaDataDO.setAdditionalAttachment(additionalAttachment);
             return metaDataDO;
         }
     }
