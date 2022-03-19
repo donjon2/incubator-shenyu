@@ -55,7 +55,7 @@ public class PrxInfoUtilTest {
     public void testGetPrxName() {
         final MetaData metaData = new MetaData("id", "appName", "contextPath", "/path",
                 "rpcType", "serviceName", "methodName", "parameterTypes",
-                "rpcExt", false, "requestSchema", "additionalParameter");
+                "rpcExt", false, "requestSchema", "additionalParameter", "additionalAttachment");
         final String result = PrxInfoUtil.getPrxName(metaData);
         assertEquals("pathmethodNamePrx", result);
     }

@@ -33,10 +33,11 @@
         <result column="enabled" jdbcType="TINYINT" property="enabled"/>
         <result column="request_schema" jdbcType="VARCHAR" property="requestSchema"/>
         <result column="additional_parameter" jdbcType="VARCHAR" property="additionalParameter"/>
+        <result column="additional_attachment" jdbcType="VARCHAR" property="additionalAttachment"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, date_created, date_updated, app_name, path,path_desc,rpc_type, service_name,method_name,parameter_types,rpc_ext,enabled,request_schema,additional_parameter
+        id, date_created, date_updated, app_name, path,path_desc,rpc_type, service_name,method_name,parameter_types,rpc_ext,enabled,request_schema,additional_parameter,additional_attachment
     </sql>
 
     <select id="selectById" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -138,7 +139,8 @@
          #{rpcExt,jdbcType=VARCHAR},
          #{enabled,jdbcType=TINYINT},
          #{requestSchema,jdbcType=VARCHAR},
-         #{additionalParameter,jdbcType=VARCHAR})
+         #{additionalParameter,jdbcType=VARCHAR},
+         #{additionalAttachment,jdbcType=VARCHAR})
     </insert>
 
 
@@ -153,7 +155,8 @@
         parameter_types = #{parameterTypes,jdbcType=VARCHAR},
         rpc_ext= #{rpcExt,jdbcType=VARCHAR},
         request_schema= #{requestSchema,jdbcType=VARCHAR},
-        additional_parameter= #{additionalParameter,jdbcType=VARCHAR}
+        additional_parameter= #{additionalParameter,jdbcType=VARCHAR},
+        additional_attachment= #{additionalAttachment,jdbcType=VARCHAR}
         where id = #{id,jdbcType=VARCHAR}
     </update>
 

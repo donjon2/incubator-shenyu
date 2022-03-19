@@ -59,6 +59,7 @@ public enum MetaDataTransfer {
                         .enabled(dto.getEnabled())
                         .requestSchema(dto.getRequestSchema())
                         .additionalParameter(dto.getAdditionalParameter())
+                        .additionalAttachment(dto.getAdditionalAttachment())
                         .build())
                 .orElse(null);
     }
@@ -83,6 +84,7 @@ public enum MetaDataTransfer {
                         .enabled(dto.isEnabled())
                         .requestSchema(dto.getRequestSchema())
                         .additionalParameter(dto.getAdditionalParameter())
+                        .additionalAttachment(dto.getAdditionalAttachment())
                         .build())
                 .orElse(null);
     }
@@ -108,6 +110,7 @@ public enum MetaDataTransfer {
                         .enabled(v.getEnabled())
                         .requestSchema(v.getRequestSchema())
                         .additionalParameter(v.getAdditionalParameter())
+                        .additionalAttachment(v.getAdditionalAttachment())
                         .build())
                 .orElse(null);
     }
@@ -130,8 +133,9 @@ public enum MetaDataTransfer {
                         .parameterTypes(v.getParameterTypes())
                         .rpcExt(v.getRpcExt())
                         .enabled(v.getEnabled())
-                        .additionalParameter(v.getAdditionalParameter())
                         .requestSchema(v.getRequestSchema())
+                        .additionalParameter(v.getAdditionalParameter())
+                        .additionalAttachment(v.getAdditionalAttachment())
                         .build())
                 .orElse(null);
     }
@@ -170,6 +174,7 @@ public enum MetaDataTransfer {
                     metaDataVO.setEnabled(metaDataDO.getEnabled());
                     metaDataVO.setRequestSchema(metaDataDO.getRequestSchema());
                     metaDataVO.setAdditionalParameter(metaDataDO.getAdditionalParameter());
+                    metaDataVO.setAdditionalAttachment(metaDataDO.getAdditionalAttachment());
                     metaDataVO.setDateCreated(Optional.ofNullable(metaDataDO.getDateCreated())
                             .map(u -> DateUtils.localDateTimeToString(u.toLocalDateTime())).orElse(null));
                     metaDataVO.setDateUpdated(Optional.ofNullable(metaDataDO.getDateUpdated())

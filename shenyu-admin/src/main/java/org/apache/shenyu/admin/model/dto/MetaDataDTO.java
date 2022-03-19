@@ -107,6 +107,11 @@ public class MetaDataDTO implements Serializable {
     private String additionalParameter;
 
     /**
+     * additional attachment.
+     */
+    private String additionalAttachment;
+
+    /**
      * Gets the value of id.
      *
      * @return the value of id
@@ -358,6 +363,25 @@ public class MetaDataDTO implements Serializable {
         this.additionalParameter = additionalParameter;
     }
 
+
+    /**
+     * Gets the value of additionalAttachment.
+     *
+     * @return the value of additionalAttachment
+     */
+    public String getAdditionalAttachment() {
+        return additionalAttachment;
+    }
+
+    /**
+     * Sets the additionalAttachment.
+     *
+     * @param additionalAttachment additionalAttachment
+     */
+    public void setAdditionalAttachment(final String additionalAttachment) {
+        this.additionalAttachment = additionalAttachment;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -380,11 +404,12 @@ public class MetaDataDTO implements Serializable {
                 && Objects.equals(rpcExt, that.rpcExt)
                 && Objects.equals(enabled, that.enabled)
                 && Objects.equals(requestSchema, that.requestSchema)
-                && Objects.equals(additionalParameter, that.additionalParameter);
+                && Objects.equals(additionalParameter, that.additionalParameter)
+                && Objects.equals(additionalAttachment, that.additionalAttachment);
     }
     
     @Override
     public int hashCode() {
-        return Objects.hash(id, appName, contextPath, path, ruleName, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, additionalParameter);
+        return Objects.hash(id, appName, contextPath, path, ruleName, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, additionalParameter, additionalAttachment);
     }
 }

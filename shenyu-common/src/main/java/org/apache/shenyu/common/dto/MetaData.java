@@ -47,6 +47,8 @@ public class MetaData {
 
     private String additionalParameter;
 
+    private String additionalAttachment;
+
     /**
      * no args constructor.
      */
@@ -68,10 +70,11 @@ public class MetaData {
      * @param enabled        enabled
      * @param requestSchema  requestSchema
      * @param additionalParameter additionalParameter
+     * @param additionalAttachment additionalAttachment
      */
     public MetaData(final String id, final String appName, final String contextPath, final String path, final String rpcType, final String serviceName,
                     final String methodName, final String parameterTypes, final String rpcExt, final Boolean enabled,
-                    final String requestSchema, final String additionalParameter) {
+                    final String requestSchema, final String additionalParameter, final String additionalAttachment) {
         this.id = id;
         this.appName = appName;
         this.contextPath = contextPath;
@@ -84,6 +87,7 @@ public class MetaData {
         this.enabled = enabled;
         this.requestSchema = requestSchema;
         this.additionalParameter = additionalParameter;
+        this.additionalAttachment = additionalAttachment;
     }
 
     /**
@@ -104,6 +108,7 @@ public class MetaData {
         this.enabled = builder.enabled;
         this.requestSchema = builder.requestSchema;
         this.additionalParameter = builder.additionalParameter;
+        this.additionalAttachment = builder.additionalAttachment;
     }
 
     /**
@@ -331,6 +336,24 @@ public class MetaData {
         this.additionalParameter = additionalParameter;
     }
 
+    /**
+     * get additionalAttachment.
+     *
+     * @return additionalAttachment
+     */
+    public String getAdditionalAttachment() {
+        return additionalAttachment;
+    }
+
+    /**
+     * set additionalAttachment.
+     *
+     * @param additionalAttachment additionalAttachment
+     */
+    public void setAdditionalAttachment(final String additionalAttachment) {
+        this.additionalAttachment = additionalAttachment;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -455,6 +478,8 @@ public class MetaData {
         private String requestSchema;
 
         private String additionalParameter;
+
+        private String additionalAttachment;
 
         /**
          * no args constructor.
@@ -600,6 +625,17 @@ public class MetaData {
          */
         public Builder additionalParameter(final String additionalParameter) {
             this.additionalParameter = additionalParameter;
+            return this;
+        }
+
+        /**
+         * build additionalAttachment.
+         *
+         * @param additionalAttachment additionalAttachment
+         * @return this
+         */
+        public Builder additionalAttachment(final String additionalAttachment) {
+            this.additionalAttachment = additionalAttachment;
             return this;
         }
     }

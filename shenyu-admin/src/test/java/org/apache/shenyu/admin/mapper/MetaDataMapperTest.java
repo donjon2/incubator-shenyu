@@ -251,6 +251,7 @@ public final class MetaDataMapperTest extends AbstractSpringIntegrationTest {
                 .enabled(false)
                 .requestSchema("testRequestSchema")
                 .additionalParameter("testAdditionalParameter")
+                .additionalAttachment("testAdditionalAttachment")
                 .id(UUIDUtils.getInstance().generateShortUuid())
                 .dateUpdated(now)
                 .dateCreated(now)

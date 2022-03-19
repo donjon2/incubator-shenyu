@@ -55,6 +55,8 @@ public class MetaDataRegisterDTO implements DataTypeParent {
 
     private String additionalParameter;
 
+    private String additionalAttachment;
+
     private String host;
 
     private Integer port;
@@ -88,7 +90,7 @@ public class MetaDataRegisterDTO implements DataTypeParent {
                                final String methodName, final String ruleName,
                                final String parameterTypes, final String rpcExt,
                                final boolean enabled, final String requestSchema,
-                               final String additionalParameter,
+                               final String additionalParameter, final String additionalAttachment,
                                final String host, final Integer port,
                                final List<String> pluginNames, final boolean registerMetaData) {
         this.appName = appName;
@@ -104,6 +106,7 @@ public class MetaDataRegisterDTO implements DataTypeParent {
         this.enabled = enabled;
         this.requestSchema = requestSchema;
         this.additionalParameter = additionalParameter;
+        this.additionalAttachment = additionalAttachment;
         this.host = host;
         this.port = port;
         this.pluginNames = pluginNames;
@@ -130,6 +133,7 @@ public class MetaDataRegisterDTO implements DataTypeParent {
         enabled = builder.enabled;
         requestSchema = builder.requestSchema;
         additionalParameter = builder.additionalParameter;
+        additionalAttachment = builder.additionalAttachment;
         host = builder.host;
         port = builder.port;
         pluginNames = builder.pluginNames;
@@ -385,6 +389,24 @@ public class MetaDataRegisterDTO implements DataTypeParent {
     }
 
     /**
+     * get additionalAttachment.
+     *
+     * @return String of additionalAttachment
+     */
+    public String getAdditionalAttachment() {
+        return additionalAttachment;
+    }
+
+    /**
+     * set additionalAttachment.
+     *
+     * @param additionalAttachment additionalAttachment
+     */
+    public void setAdditionalAttachment(final String additionalAttachment) {
+        this.additionalAttachment = additionalAttachment;
+    }
+
+    /**
      * getHost.
      *
      * @return String host
@@ -522,6 +544,8 @@ public class MetaDataRegisterDTO implements DataTypeParent {
         private String requestSchema;
 
         private String additionalParameter;
+
+        private String additionalAttachment;
 
         private String host;
 
@@ -674,6 +698,17 @@ public class MetaDataRegisterDTO implements DataTypeParent {
          */
         public Builder additionalParameter(final String additionalParameter) {
             this.additionalParameter = additionalParameter;
+            return this;
+        }
+
+        /**
+         * additionalAttachment.
+         *
+         * @param additionalAttachment additionalAttachment
+         * @return Builder builder
+         */
+        public Builder additionalAttachment(final String additionalAttachment) {
+            this.additionalAttachment = additionalAttachment;
             return this;
         }
     

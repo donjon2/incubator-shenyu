@@ -61,6 +61,8 @@ public class MetaDataVO implements Serializable {
 
     private String additionalParameter;
 
+    private String additionalAttachment;
+
     public MetaDataVO() {
     }
 
@@ -77,7 +79,8 @@ public class MetaDataVO implements Serializable {
                       final String dateUpdated,
                       final Boolean enabled,
                       final String requestSchema,
-                      final String additionalParameter) {
+                      final String additionalParameter,
+                      final String additionalAttachment) {
         this.appName = appName;
         this.path = path;
         this.pathDesc = pathDesc;
@@ -92,6 +95,7 @@ public class MetaDataVO implements Serializable {
         this.enabled = enabled;
         this.requestSchema = requestSchema;
         this.additionalParameter = additionalParameter;
+        this.additionalAttachment = additionalAttachment;
     }
 
     /**
@@ -329,6 +333,24 @@ public class MetaDataVO implements Serializable {
     }
 
     /**
+     * Gets the value of additionalAttachment.
+     *
+     * @return the value of additionalAttachment
+     */
+    public String getAdditionalAttachment() {
+        return additionalAttachment;
+    }
+
+    /**
+     * Sets the additionalAttachment.
+     *
+     * @param additionalAttachment additionalAttachment
+     */
+    public void setAdditionalAttachment(final String additionalAttachment) {
+        this.additionalAttachment = additionalAttachment;
+    }
+
+    /**
      * Gets the value of additionalParameter.
      *
      * @return the value of additionalParameter
@@ -368,12 +390,13 @@ public class MetaDataVO implements Serializable {
                 && Objects.equals(dateUpdated, that.dateUpdated)
                 && Objects.equals(enabled, that.enabled)
                 && Objects.equals(requestSchema, that.requestSchema)
-                && Objects.equals(additionalParameter, that.additionalParameter);
+                && Objects.equals(additionalParameter, that.additionalParameter)
+                && Objects.equals(additionalAttachment, that.additionalAttachment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, id, dateCreated, dateUpdated, enabled, requestSchema, additionalParameter);
+        return Objects.hash(appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, id, dateCreated, dateUpdated, enabled, requestSchema, additionalParameter, additionalAttachment);
     }
 
     @Override

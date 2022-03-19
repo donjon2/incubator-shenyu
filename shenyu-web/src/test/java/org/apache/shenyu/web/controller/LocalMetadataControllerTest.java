@@ -98,6 +98,7 @@ public final class LocalMetadataControllerTest {
         metaData.setEnabled(Boolean.TRUE);
         metaData.setRequestSchema("requestSchema");
         metaData.setAdditionalParameter("additionalParameter");
+        metaData.setAdditionalAttachment("additionalAttachment");
         return metaData;
     }
 

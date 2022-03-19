@@ -53,6 +53,8 @@ public final class MetaDataDO extends BaseDO implements Serializable {
 
     private String additionalParameter;
 
+    private String additionalAttachment;
+
     public MetaDataDO() {
     }
 
@@ -66,7 +68,8 @@ public final class MetaDataDO extends BaseDO implements Serializable {
                       final String rpcExt,
                       final Boolean enabled,
                       final String requestSchema,
-                      final String additionalParameter) {
+                      final String additionalParameter,
+                      final String additionalAttachment) {
         this.appName = appName;
         this.path = path;
         this.pathDesc = pathDesc;
@@ -78,6 +81,7 @@ public final class MetaDataDO extends BaseDO implements Serializable {
         this.enabled = enabled;
         this.requestSchema = requestSchema;
         this.additionalParameter = additionalParameter;
+        this.additionalAttachment = additionalAttachment;
     }
 
     /**
@@ -279,6 +283,24 @@ public final class MetaDataDO extends BaseDO implements Serializable {
     }
 
     /**
+     * Gets the value of additionalAttachment.
+     *
+     * @return the value of additionalAttachment
+     */
+    public String getAdditionalAttachment() {
+        return additionalAttachment;
+    }
+
+    /**
+     * Sets the additionalAttachment.
+     *
+     * @param additionalAttachment additionalAttachment
+     */
+    public void setAdditionalAttachment(final String additionalAttachment) {
+        this.additionalAttachment = additionalAttachment;
+    }
+
+    /**
      * builder method.
      *
      * @return builder object.
@@ -309,12 +331,13 @@ public final class MetaDataDO extends BaseDO implements Serializable {
                 && Objects.equals(rpcExt, that.rpcExt)
                 && Objects.equals(enabled, that.enabled)
                 && Objects.equals(requestSchema, that.requestSchema)
-                && Objects.equals(additionalParameter, that.additionalParameter);
+                && Objects.equals(additionalParameter, that.additionalParameter)
+                && Objects.equals(additionalAttachment, that.additionalAttachment);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, additionalParameter);
+        return Objects.hash(super.hashCode(), appName, path, pathDesc, rpcType, serviceName, methodName, parameterTypes, rpcExt, enabled, requestSchema, additionalParameter, additionalAttachment);
     }
 
     public static final class MetaDataDOBuilder {
@@ -346,6 +369,8 @@ public final class MetaDataDO extends BaseDO implements Serializable {
         private String requestSchema;
 
         private String additionalParameter;
+
+        private String additionalAttachment;
 
         private MetaDataDOBuilder() {
         }
@@ -501,6 +526,17 @@ public final class MetaDataDO extends BaseDO implements Serializable {
          */
         public MetaDataDOBuilder additionalParameter(final String additionalParameter) {
             this.additionalParameter = additionalParameter;
+            return this;
+        }
+
+        /**
+         * additionalAttachment.
+         *
+         * @param additionalAttachment the additionalAttachment.
+         * @return MetaDataDOBuilder.
+         */
+        public MetaDataDOBuilder additionalAttachment(final String additionalAttachment) {
+            this.additionalAttachment = additionalAttachment;
             return this;
         }
 
