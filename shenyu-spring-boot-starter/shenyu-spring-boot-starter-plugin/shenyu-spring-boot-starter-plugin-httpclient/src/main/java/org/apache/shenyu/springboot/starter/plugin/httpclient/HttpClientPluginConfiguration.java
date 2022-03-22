@@ -40,6 +40,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.client.HttpClient;
 import reactor.netty.resources.ConnectionProvider;
 import reactor.netty.resources.LoopResources;
+import reactor.netty.tcp.TcpResources;
 import reactor.netty.transport.ProxyProvider;
 
 import java.security.cert.X509Certificate;
@@ -129,7 +130,7 @@ public class HttpClientPluginConfiguration {
                     if (StringUtils.isNotEmpty(threadPool.getPrefix())) {
                         LoopResources resources = LoopResources.create(threadPool.getPrefix(),
                                 threadPool.getSelectCount(), threadPool.getWorkerCount(), threadPool.getDaemon());
-                        tcpClient = tcpClient.runOn(resources, threadPool.getPreferNative());
+                        TcpResources.set(resources);
                     }
                     return tcpClient;
                 });

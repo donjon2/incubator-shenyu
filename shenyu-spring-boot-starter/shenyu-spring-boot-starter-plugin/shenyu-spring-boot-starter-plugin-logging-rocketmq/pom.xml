@@ -20,38 +20,28 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>shenyu-agent-plugin-logging</artifactId>
         <groupId>org.apache.shenyu</groupId>
+        <artifactId>shenyu-spring-boot-starter-plugin</artifactId>
         <version>hzlz-1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>shenyu-agent-plugin-logging-common</artifactId>
-
+    <artifactId>shenyu-spring-boot-starter-plugin-logging-rocketmq</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-agent-plugin-logging-api</artifactId>
+            <artifactId>shenyu-plugin-logging-rocketmq</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-agent-api</artifactId>
-            <version>${project.version}</version>
-            <scope>provided</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-agent-core</artifactId>
-            <version>${project.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shenyu</groupId>
-            <artifactId>shenyu-plugin-base</artifactId>
-            <version>${project.version}</version>
-            <scope>provided</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
