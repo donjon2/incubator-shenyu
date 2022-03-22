@@ -26,7 +26,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>shenyu-plugin-metrics</artifactId>
-
+    
     <dependencies>
         <dependency>
             <groupId>org.apache.shenyu</groupId>
